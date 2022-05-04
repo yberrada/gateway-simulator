@@ -13,7 +13,7 @@ conf = {
     'sasl.username': 'B3DQTWKCGZTVSBDL',
     'sasl.password': 'fqRSlQWvnV4bzpCyDVvaqFqJwZyD0xyuSB5YddEicgOjMokLd44zTJtdd/VFEL8/',
 }
-topic = "fleet-telemetry"
+topic = "telemetry-data"
 producer = Producer(conf)
 
 

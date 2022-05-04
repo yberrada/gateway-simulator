@@ -1,11 +1,15 @@
 {
-    "vehicleId":"0bf45cac-d1b8-4364-a906-980e1c2bdbcb",
-    "vehicleType":"Truck",
-    "routeId":"Route-37",
-    "longitude":"-95.255615",
-    "latitude":"33.49808",
-    "timestamp":"2017-10-16 12:31:03",
-    "speed":49.0,
-    "fuelLevel":38.0
-  }
+  "vehicleId": "{{chance.string({ length: 6 })}}",
+  "vehicleType": "Truck",
+  "routeId": "Route-{{chance.integer({ min: 01, max: 50 })}}",
+  "gps_location": "{{chance.coordinates()}}",
+  "timestamp": {
+    "$date": {
+      "min": "2022-01-01",
+      "max": "2022-03-31"
+    }
+  },
+  "speed": "{{chance.integer({ min: 00, max: 90 })}}",
+  "fuelLevel": "{{chance.integer({ min: 00, max: 90 })}}"
+}
   

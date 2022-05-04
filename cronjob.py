@@ -31,13 +31,17 @@ def delivery_callback(err, msg):
 
 # cmd = 'mgeneratejs tracking.json -n 1 > data.json'
 
+cmd = 'mgeneratejs data_stream.json -n 1 > data.json'
+
+
+
 
 file = open("data.json", "r")
 data = file.read()
 
 while True:
-    # os.system(cmd)
+    os.system(cmd)
     producer.produce(topic, data, callback=delivery_callback)
     print("Telemetry data sent")
     # producer.poll(1) # Aknowledge message sent
-    time.sleep(30)
+    time.sleep(1)

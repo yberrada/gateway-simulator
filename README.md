@@ -49,6 +49,10 @@ Further in a future state, this project can have Data Science component feeding 
 In a real world scenario an IOT hub will be receiving the data first, however for simplicity we have omitted that step and created simulators which are generating this data continously to mimic a real-time pipeline.
 """
 
+Application front end:
+
+![Screenshots of front end can be seen /gateway-simulator]
+
 # Roles and Responsibilities
 
 _List all the team members and summarize the contributions each member made to this project_
@@ -69,3 +73,52 @@ _The demonstration script should provide all the information required for anothe
 * _step by step instructions on how to give the demonstration_
 * _key points to emphasize at each point in the demonstration_
 * _any tear down steps required to reset the demonstration so it is ready for the next time_
+Prerequisites : Install Python on the local machine
+1. Python script for data simulator which run on local
+
+2. Follow the following link to MongoDB to connect to sink connector
+https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/
+https://docs.confluent.io/platform/current/installation/configuration/connect/sink-connect-configs.html
+
+3. Hosting the App with Realm
+
+Upload Your Built Application to Realm
+Single-page applications render in a single, specific HTML file, typically /index.html. The file should include the necessary JavaScript code to wire up and render your application, either inline in a <script> tag or imported from an external file. You'll also need to host any resources that you don't intend to access through a CDN.
+
+When you are ready to host your SPA, run your application's build script and then upload the build folder to MongoDB Realm.
+
+2 Configure Realm to Serve Your Application
+
+Pull the Latest Version of Your App
+To configure a single-page application with realm-cli, you need a local copy of your application's configuration files.
+
+To pull a local copy of the latest version of your app, run the following:
+
+realm-cli pull --remote="<Your App ID>"
+
+TIP
+You can also download a copy of your application's configuration files from the Deploy > Import/Export App screen in the Realm UI.
+
+2
+Add Your Built Application Code
+Single-page applications render in a single, specific HTML file, typically /index.html. The file should include the necessary JavaScript code to wire up and render your application, either inline in a <script> tag or imported from an external file. You'll also need to host any resources that you don't intend to access through a CDN.
+
+When you are ready to host your SPA, run your application's build script and then copy the output build folder into the /hosting/files directory of your application directory.
+
+3 Configure Realm to Serve Your Application
+In hosting/config.json, set default_response_code to 200 and set default_error_path to the resource path of your SPA's root HTML file. Make sure to save the file when you're done.
+
+hosting/config.json
+{
+  "enabled": true,
+  "default_response_code": 200,
+  "default_error_path": "/index.html",
+}
+
+4
+Deploy the Updated Hosting Configuration
+Once you've updated and saved hosting/config.json you can push the updated config to your remote app. Realm CLI immediately supports your SPA on push.
+
+realm-cli push --remote="<Your App ID>" --include-hosting
+
+
